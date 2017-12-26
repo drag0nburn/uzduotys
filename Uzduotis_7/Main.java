@@ -30,7 +30,30 @@ public class Main {
 
 
 
-        //Rusiavimas pagal vidurki
+        //Klasių vidurkiai
+
+        double[] vidurkiai = new double[12];
+
+        for(Mokinys mokinys : a){
+            vidurkiai[mokinys.getClassNumber()-1] += mokinys.getAverage();
+        }
+
+        for(int i = 0; i < 12; i++){
+
+            if(Mokinys.getCountClasses(i) > 0){
+                vidurkiai[i] /= Mokinys.getCountClasses(i);
+            }
+        }
+
+        for(int i = 0; i < 12; i++){
+
+            System.out.println(i + 1 + " " + "klasės vidurkis yra " + vidurkiai[i]);
+        }
+
+        System.out.println("-----------------------------------------------------");
+
+
+
 
         Mokinys temp;
         boolean sorted = false;
@@ -40,7 +63,7 @@ public class Main {
 
             for(int i=0; i<a.length-1; i++){
 
-                if(a[i].vidurkis()<a[i+1].vidurkis()){
+                if(a[i].getAverage()<a[i+1].getAverage()){
 
                     temp = a[i + 1];
                     a[i + 1] = a[i];
@@ -51,11 +74,18 @@ public class Main {
         }
 
         for (Mokinys anA : a) {
-            System.out.println("Mokinio vardas " + anA.vardas + " mokini pavardė " + anA.pavarde + " ir jo vidurkis " + anA.vidurkis());
+            System.out.println("Mokinio vardas " + anA.getName() + " mokini pavardė " + anA.getSurname() + " ir jo vidurkis " + anA.getAverage());
         }
 
 
 
 
+
+
+
     }
+
+
+
 }
+//[1,2,3,4,5]
