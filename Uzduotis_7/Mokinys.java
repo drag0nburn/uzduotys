@@ -1,70 +1,60 @@
 package Uzduotis_7;
 
-public class Mokinys {
+public class Mokinys extends Zmogus {
 
-    static int [] kiekis = new int [12];
+    private static int [] countClasses = new int [12];
+    private int [] grades;
+    private double average;
+    private int classNumber;
 
-    String vardas;
-    String pavarde;
-    int klase;
-    int[] pazymiai;
 
-    Mokinys(String vardas, String pavarde, int klase, int[] pazymiai){
-        this.vardas = vardas;
-        this.pavarde = pavarde;
-        this.klase = klase;
-        this.pazymiai = pazymiai;
+    Mokinys (String name, String surname, int classNumber) {
 
-        if(this.klase==1){
-            kiekis[0]=1;
-        }
-
-        if(this.klase==2){
-            kiekis[1]++;
-        }
-        if(this.klase==3){
-            kiekis[2]++;
-        }
-        if(this.klase==4){
-            kiekis[3]++;
-        }
-        if(this.klase==5){
-            kiekis[4]++;
-        }
-        if(this.klase==6){
-            kiekis[5]++;
-        }
-        if(this.klase==7){
-            kiekis[6]++;
-        }
-        if(this.klase==8){
-            kiekis[7]++;
-        }
-        if(this.klase==9){
-            kiekis[8]++;
-        }
-        if(this.klase==10){
-            kiekis[9]++;
-        }
-        if(this.klase==11){
-            kiekis[10]++;
-        }
-        if(this.klase==12){
-            kiekis[11]++;
-        }
+        super(name, surname);
+        this.classNumber = classNumber;
     }
 
-    double vidurkis(){
-        double suma=0;
-        for(int i : this.pazymiai){
-            suma+=i;
+    Mokinys (String name, String surname, int classNumber, int[] grades){
+        this(name, surname, classNumber);
+        this.grades = grades;
+    }
+
+    public void calculateAverage(){
+
+        int sum = 0;
+        for(int grade : this.grades){
+            sum += grade;
         }
-        return suma / this.pazymiai.length;
 
+        this.average = (double)sum/this.grades.length;
+    }
 
+    public void setClassNumber(int classNumber){
 
+        countClasses[this.classNumber - 1] --;
+        this.classNumber = classNumber;
+        countClasses[this.classNumber - 1]++;
+    }
 
+    public static int getCountClasses(int classNumber){
 
+        return countClasses[classNumber];
+    }
 
+    public static int[] getCountClasses() {
+        return countClasses;
+    }
+
+    public double getAverage() {
+        this.calculateAverage();
+        return average;
+    }
+
+    public int getClassNumber() {
+        return classNumber;
     }
 }
+
+
+    
+
