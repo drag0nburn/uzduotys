@@ -1,6 +1,9 @@
 <application>
   <component name="FindSettings">
+    <option name="customScope" value="Project 'Mario_AI'" />
+    <option name="defaultScopeName" value="Project 'Mario_AI'" />
     <option name="localWholeWordsOnly" value="true" />
     <option name="LOCAL_WHOLE_WORDS_ONLY" value="true" />
+    <option name="SEARCH_SCOPE" value="Project 'Mario_AI'" />
   </component>
 </application>
